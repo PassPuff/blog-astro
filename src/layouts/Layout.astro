@@ -1,3 +1,7 @@
+---
+import '../styles/global.css';
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -8,15 +12,14 @@
 		<title>Astro Basics</title>
 	</head>
 	<body>
-		<slot />
+		<nav class="flex gap-4 justify-center p-4 bg-amber-300">
+			<a href="/">Main</a>
+			<a href="/about">About</a>
+			<a href="/blog">Blog</a>
+		</nav>
+		<main class="flex items-center justify-center h-screen text-6xl">
+			<slot/>
+		</main>
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
