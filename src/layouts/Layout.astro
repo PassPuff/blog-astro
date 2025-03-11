@@ -1,5 +1,9 @@
 ---
 import '../styles/global.css';
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+
+const {pageTitle} = Astro.props;
 ---
 
 <!doctype html>
@@ -9,21 +13,21 @@ import '../styles/global.css';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
-		<nav class="flex gap-4 justify-center p-4 bg-amber-300">
-			<a href="/">Main</a>
-			<a href="/about/">About</a>
-			<a href="/blog/">Blog</a>
-
-			<a href="/posts/post-1/">Post 1</a>
-			<a href="/posts/post-2/">Post 2</a>
-			<a href="/posts/post-3/">Post 3</a>
-		</nav>
-		<main class="flex flex-col text-2xl gap-3">
+		<Header/>
+		<h1>{pageTitle}</h1>
+		<main class="flex flex-col text-2xl gap-3 py-10">
 			<slot/>
 		</main>
+		<Footer/>
+
+		<script>
+			import "../scripts/menu.ts";
+		</script>
+
+
 	</body>
 </html>
 
